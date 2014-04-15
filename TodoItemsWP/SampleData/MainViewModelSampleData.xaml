@@ -1,0 +1,17 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:GetStartedWithMobileServices.TodoItemsWP.ViewModels"
+    xmlns:vmi="clr-namespace:GetStartedWithMobileServices.Model;assembly=GetStartedWithMobileServices.Model"
+    SampleProperty="Sample Text Property Value">
+
+    <vm:MainViewModel.Items>
+        <vmi:TodoItem Number="0" Title="design one" Description="Maecenas praesent accumsan bibendum"/>
+        <vmi:TodoItem Number="1" Title="design two" Description="Dictumst eleifend facilisi faucibus" />
+        <vmi:TodoItem Number="2" Title="design three" Description="Habitant inceptos interdum lobortis" />
+        <vmi:TodoItem Number="3" Title="design four" Description="Nascetur pharetra placerat pulvinar" />
+        <vmi:TodoItem Number="4" Title="design five" Description="Sagittis senectus sociosqu suscipit" />
+        <vmi:TodoItem Number="5" Title="design six" Description="Torquent ultrices vehicula volutpat" />
+    </vm:MainViewModel.Items>
+
+</vm:MainViewModel>
