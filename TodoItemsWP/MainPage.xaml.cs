@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using GetStartedWithMobileServices.TodoItemsWP.Resources;
 using GetStartedWithMobileServices.TodoItemsWP.ViewModels;
 using GetStartedWithMobileServices.Model;
+using System.Threading;
 
 namespace TodoItemsWP
 {
@@ -19,6 +20,7 @@ namespace TodoItemsWP
         public MainPage()
         {
             InitializeComponent();
+            BuildLocalizedApplicationBar();
 
             // Set the data context of the LongListSelector control to the sample data
             DataContext = App.ViewModel;
@@ -50,20 +52,41 @@ namespace TodoItemsWP
             MainLongListSelector.SelectedItem = null;
         }
 
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarButtonText;
+            appBarButton.Click += appBarButton_Click;
+            ApplicationBar.Buttons.Add(appBarButton);
+        }
 
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        private void appBarButton_Click(object sender, EventArgs e)
+        {
+            int lastNumber = 0;
+            foreach (var todoItem in App.ViewModel.Items)
+            {
+                if (lastNumber < todoItem.Number)
+                {
+                    lastNumber = todoItem.Number;
+                }
+            }
+            var newTodoItem = NewItemControl.GetTodoItem();
+            newTodoItem.Number = lastNumber + 1;
+            App.ViewModel.Items.Add(newTodoItem);
+            NewItemControl.ClearFields();
+
+            MainPivot.SelectedIndex = 0;
+            MainLongListSelector.ScrollTo(newTodoItem);
+        }
+
+        private void MainPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Pivot p = sender as Pivot;
+            ApplicationBar.Mode = p.SelectedIndex == 1 ? ApplicationBarMode.Default : ApplicationBarMode.Minimized;
+        }
     }
 }
