@@ -24,6 +24,11 @@ namespace GetStartedWithMobileServices
     /// </summary>
     sealed partial class App : Application
     {
+        // http://go.microsoft.com/fwlink/?LinkId=290986&clcid=0x409
+        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient myawesomemobileserviceRDMOClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+        "https://myawesomemobileservicerdmo.azure-mobile.net/",
+        "JImbZWpIppOsjQinvqBKcxSPNQRDsx94");
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
