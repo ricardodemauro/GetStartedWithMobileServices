@@ -1,13 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetStartedWithMobileServices", "GetStartedWithMobileServices\GetStartedWithMobileServices.csproj", "{5AC42459-C775-4DE0-A241-E50FF9D524E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoItemsWP", "TodoItemsWP\TodoItemsWP.csproj", "{56A7DEC6-E447-4DF5-A9C0-CF4C2BD77E33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{6308F7BB-734A-4E81-AB4A-FD89624DE4EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FBC6A06-6519-440B-A81A-53F2AAB0D911}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snk", "Snk", "{C1372F5E-D5B0-4542-993A-8C807F1C9F4D}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Snk\GetStartedMS.snk = Solution Items\Snk\GetStartedMS.snk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoListMobileService", "TodoListMobileService\TodoListMobileService.csproj", "{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,8 +107,26 @@ Global
 		{6308F7BB-734A-4E81-AB4A-FD89624DE4EA}.Release|ARM.ActiveCfg = Release|Any CPU
 		{6308F7BB-734A-4E81-AB4A-FD89624DE4EA}.Release|x64.ActiveCfg = Release|Any CPU
 		{6308F7BB-734A-4E81-AB4A-FD89624DE4EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Designer|Any CPU.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Designer|Any CPU.Build.0 = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Designer|ARM.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Designer|x64.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Designer|x86.ActiveCfg = Debug|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Release|x64.ActiveCfg = Release|Any CPU
+		{D058AB0A-6CBA-4C27-AB06-9AF29E4E8772}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1372F5E-D5B0-4542-993A-8C807F1C9F4D} = {5FBC6A06-6519-440B-A81A-53F2AAB0D911}
 	EndGlobalSection
 EndGlobal
