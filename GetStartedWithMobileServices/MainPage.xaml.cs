@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,6 +35,12 @@ namespace GetStartedWithMobileServices
         public bool Complete { get; set; }
     }
 
+    public class UndoneCountResult
+    {
+        [JsonProperty("count")]
+        public int Count { get; set; }
+    }
+
     public sealed partial class MainPage : Page
     {
         // TODO: Comment out the following line that defined the in-memory collection. 
@@ -49,6 +56,33 @@ namespace GetStartedWithMobileServices
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void ButtonUndoneCount_Click(object sender, RoutedEventArgs e)
+        {
+            string message;
+            try
+            {
+                // Asynchronously call the custom API using the POST method. 
+                var result = await App.myawesomemobileserviceRDMOClient
+                    .InvokeApiAsync<UndoneCountResult>("UndoneCount",
+                    System.Net.Http.HttpMethod.Get, null);
+                message = result.Count + " item(s) undone.";
+                RefreshTodoItems();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                message = ex.Message;
+            }
+
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
         }
 
         private async void InsertTodoItem(TodoItem todoItem)
