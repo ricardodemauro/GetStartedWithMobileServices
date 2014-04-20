@@ -5,13 +5,13 @@ using Microsoft.WindowsAzure.Mobile.Service;
 namespace TodoListMobileService.ScheduledJobs
 {
     // A simple scheduled job which can be invoked manually by submitting an HTTP
-    // POST request to the path "/jobs/sample".
+    // POST request to the path "/jobs/Default".
 
-    public class SampleJob : ScheduledJob
+    public class DefaultJob : ScheduledJob
     {
         public override Task ExecuteAsync()
         {
-            Services.Log.Info("Hello from scheduled job SAMPLE!");
+            Services.Log.Info("Hello from scheduled job TESTE!");
             return Task.FromResult(true);
         }
     }
